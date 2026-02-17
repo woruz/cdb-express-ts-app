@@ -1,5 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import routes from "./routes";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 
@@ -13,7 +15,7 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   res.status(status).json({ error: message });
 });
 
-const PORT = process.env.PORT || 7777;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
